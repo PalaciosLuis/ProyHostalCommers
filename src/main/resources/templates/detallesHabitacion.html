@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles de Habitación</title>
+    <style>
+        /* Estilos */
+        /* ... */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .details {
+            margin-bottom: 15px;
+        }
+        .details label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+	
+	<a href="/habitacion/catalogo"> REGRESAR</a>
+    <div class="container">
+        <h1>Detalles de Habitación</h1>
+        <div class="details">
+            <label>ID:</label>
+            <span th:text="${habitacion.id}"></span>
+        </div>
+        <div class="details">
+            <label>Número:</label>
+            <span th:text="${habitacion.numero}"></span>
+        </div>
+        <div class="details">
+            <label>Tipo:</label>
+            <span th:text="${habitacion.tipo}"></span>
+        </div>
+        <div class="details">
+            <label>Precio:</label>
+            <span th:text="${habitacion.precio}"></span>
+        </div>
+        <!-- Agrega más detalles de la habitación si es necesario -->
+        <div class="details">
+            <label>Imagen:</label>
+            <img th:src="@{${'/imagenes/' + habitacion.numero + '.jpg'}}" alt="Habitación" width="200">
+        </div>
+        <!-- Agrega más detalles de la habitación si es necesario -->
+        <div class="details">
+            <!-- Agrega enlaces de acción, botones para editar o eliminar si es necesario -->
+            
+            <a href="/reserva/">Reservar</a>
+        </div>
+    </div>
+</body>
+</html>

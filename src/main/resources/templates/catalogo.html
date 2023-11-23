@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Galería de Habitaciones</title>
+	<style>
+		/* Estilos */
+		/* ... */
+		.gallery {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			margin-top: 20px;
+		}
+
+		.gallery-item {
+			flex: 0 0 calc(33.333% - 20px);
+			margin: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			padding: 10px;
+			text-align: center;
+		}
+
+		.gallery-item img {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<div class="container">
+		<h1>CATALOGO</h1>
+		<div class="gallery">
+			<div th:each="habitacion : ${habitacion}" class="gallery-item">
+				<a class="btn btn-success" th:attr="href=|/habitacion/detalles/${habitacion.id}|">
+					<p>ID: <span th:text="${habitacion.id}"></span></p>
+					<p>Numero: <span th:text="${habitacion.numero}"></span></p>
+					<p>Tipo: <span th:text="${habitacion.tipo}"></span></p>
+					<p>Precio: S/ <span th:text="${habitacion.precio}"></span></p>
+					<img th:src="@{${'~/imagenes/' + habitacion.numero + '.jpg'}}" alt="Habitación" width="150">
+					<!-- Agrega más detalles de la habitación si es necesario -->
+				</a>
+
+
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
